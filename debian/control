@@ -1,0 +1,13 @@
+Source: onboard
+Section: embedded
+Priority: optional
+Maintainer: Ben Young <software@nextthing.co>
+Build-Depends: debhelper (>= 9), libsdl2-dev, libsdl2-image-dev
+Standards-Version: 3.9.6
+Homepage: github.com/nextthingco
+
+Package: onboard
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: An image carousel program
+ An image carousel program designed to assist in end-user onboarding for PocketCHIP.
