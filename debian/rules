@@ -24,12 +24,12 @@ endif
 export CPPFLAGS CFLAGS LDFLAGS
 
 override_dh_auto_build:
-    dh_auto_build -D src
+	dh_auto_build -D src
     
 override_dh_auto_clean:
-    dh_auto_clean -D src
+	dh_auto_clean -D src
    
 %:
-     dh $@
+	dh $@
 
 
