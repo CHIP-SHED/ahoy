@@ -1,27 +1,5 @@
 #!/usr/bin/make -f
 
-CFLAGS:=    $(shell dpkg-buildflags --get CFLAGS)
-CPPFLAGS:=  $(shell dpkg-buildflags --get CPPFLAGS)
-LDFLAGS:=   $(shell dpkg-buildflags --get LDFLAGS)
-
-CFLAGS+=    -Wall -W -Wbad-function-cast \
-    -Wcast-align -Wcast-qual -Wchar-subscripts -Winline \
-    -Wnested-externs -Wpointer-arith \
-    -Wredundant-decls -Wwrite-strings
-ifneq (,$(filter werror,$(DEB_BUILD_OPTIONS)))
-    CFLAGS+=    -Werror
-endif
-
-include /usr/share/hardening-includes/hardening.make
-
-
-include /usr/share/hardening-includes/hardening.make
-ifeq (,$(filter nohardening,$(DEB_BUILD_OPTIONS)))
-CFLAGS+=    $(HARDENING_CFLAGS)
-LDFLAGS+=   $(HARDENING_LDFLAGS)
-endif
-
-export CPPFLAGS CFLAGS LDFLAGS
 
 override_dh_auto_build:
 	dh_auto_build -D src
