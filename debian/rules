@@ -30,7 +30,7 @@ override_dh_auto_clean:
 	dh_auto_clean -D src
 
 override_dh_auto_install:
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/ahoy PREFIX=/usr
+	dh_auto_install -D src -- DESTDIR=$(CURDIR)/debian/ahoy PREFIX=/usr
    
 %:
 	dh $@
