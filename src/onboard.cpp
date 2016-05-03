@@ -77,7 +77,7 @@ bool init()
 	return success;
 }
 
-bool loadMedia( int ac, char* av[], int slide)
+bool loadMedia( char* av[], int slide)
 {
 	//Loading success flag
 	bool success = true;
@@ -120,7 +120,7 @@ int main( int argc, char* argv[] )
 	else
 	{
 		//Load media
-		if( !loadMedia(argc, argv, slide) )
+		if( !loadMedia(argv, slide) )
 		{
 			printf( "Failed to load media!\n" );
 		}
@@ -153,13 +153,13 @@ int main( int argc, char* argv[] )
 							}
 							if( e.key.keysym.sym == SDLK_LEFT && slide > 2){
 								slide -= 1;
-								if (!loadMedia(argc, argv, slide))
+								if (!loadMedia(argv, slide))
 									quit = true;								
 							}
 							if( e.key.keysym.sym == SDLK_RIGHT ){
 								if(slide != (argc - 1)){
 									slide += 1;
-									if(!loadMedia(argc, argv, slide)){
+									if(!loadMedia(argv, slide)){
 										quit = true;
 									}
 								}else
@@ -169,12 +169,12 @@ int main( int argc, char* argv[] )
 						case SDL_MOUSEBUTTONUP:
 							if (mPosition.x < 100 && slide > 2){
 								slide -= 1;
-								if (!loadMedia(argc, argv, slide))
+								if (!loadMedia(argv, slide))
 									quit = true;
 							}else if (mPosition.x > 380){
 								if(slide != (argc - 1)){
 									slide += 1;
-									if(!loadMedia(argc, argv, slide)){
+									if(!loadMedia(argv, slide)){
 										quit = true;
 									}
 								}else
