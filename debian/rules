@@ -11,6 +11,9 @@ override_dh_auto_install:
 	dh_auto_install -D src -- DESTDIR=$(CURDIR)/debian/ahoy PREFIX=/usr
    
 %:
-	dh $@
+	TARGET_ARCH=-march=armv7 \
+	CXX=arm-linux-gnueabihf-g++ \
+	LD_FLAGS="-L/usr/lib/arm-linux-gnueabihf -lSDL2 -lSDL2_image" \
+	dh $@ --parallel
 
 
