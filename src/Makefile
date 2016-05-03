@@ -11,8 +11,8 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CPPFLAGS) $(CFLAGS) $(DEFINES) -o $@ -c $<
 
 install: $(TARGET)
-	mkdir -p $(PREFIX)/bin
-	install -p -m 755 $(TARGET) $(PREFIX)/bin
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	install -p -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin
 
 clean:
 	rm -f $(OBJS) $(TARGET) *~
