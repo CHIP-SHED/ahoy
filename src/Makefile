@@ -1,8 +1,8 @@
 PREFIX  = /usr
 CFLAGS  ?= -g -Wall -Wno-deprecated-declarations -O2
 LIBS    = -lSDL2 -lSDL2_image
-OBJS    = onboard.o
-TARGET  = onboard
+OBJS    = ahoy.o
+TARGET  = ahoy
 
 $(TARGET): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)

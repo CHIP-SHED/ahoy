@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: onboard
-Source: https://github.com/nextthingco/onboard
+Upstream-Name: ahoy
+Source: https://github.com/nextthingco/ahoy
 
 Files: *
 Copyright: <2016> <Ben Young> <software@nextthing.co>
