@@ -1,14 +1,14 @@
 PREFIX  = /usr
-CFLAGS  ?= -g Wall -Wno-deprecated-declarations -O2
+CFLAGS  ?= -g -Wall -Wno-deprecated-declarations -O2
 LIBS    = -lSDL2 -lSDL2_image
 OBJS    = onboard.o
 TARGET  = onboard
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 %.o: %.cpp
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(DEFINES) -o $@ -c $<
+	$(CXX) $(CPPFLAGS) $(CFLAGS) $(DEFINES) -o $@ -c $<
 
 install: $(TARGET)
 	mkdir -p $(PREFIX)/bin
