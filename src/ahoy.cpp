@@ -52,7 +52,7 @@ bool init()
 	else
 	{
 		//Create window
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		gWindow = SDL_CreateWindow( "ahoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
@@ -84,7 +84,6 @@ bool loadMedia( char* av[], int slide)
 
 	//Load splash image
 	gImgSurface = IMG_Load(av[slide]);
-	printf("%s\n", av[slide]);
 	if( gImgSurface == NULL )
 	{
 		printf( "Unable to load image %s! SDL Error: %s\n", av[slide], SDL_GetError() );
