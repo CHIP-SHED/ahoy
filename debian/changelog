@@ -1,3 +1,10 @@
+ahoy (0.2) unstable; urgency=low
+
+  * Changed window title.
+  * Removed some debug output.
+
+ -- Ben Young <software@nextthing.co>  Mon, 03 May 2016 18:34:16 -0700
+
 ahoy (0.1) unstable; urgency=low
 
   * Initial Release.
