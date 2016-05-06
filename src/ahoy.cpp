@@ -146,7 +146,7 @@ int main( int argc, char* argv[] )
 							if( e.key.keysym.sym == SDLK_ESCAPE )	quit = true;
 							if( e.key.keysym.sym == SDLK_0 ){								
 								ofstream fout(argv[1]);
-								fout << "1";
+								fout << "0";
 								fout.close();
 								quit = true;
 							}

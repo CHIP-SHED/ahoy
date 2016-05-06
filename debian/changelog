@@ -1,3 +1,9 @@
+ahoy (0.3) unstable; urgency=low
+
+  * Switched nevershowagain flag to 0 value.
+
+ -- Ben Young <software@nextthing.co>  Mon, 03 May 2016 18:34:16 -0700
+
 ahoy (0.2) unstable; urgency=low
 
   * Changed window title.
