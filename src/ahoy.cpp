@@ -35,22 +35,43 @@ SDL_Surface* gScreenSurface = NULL;
 //The image we will load and show on the screen
 SDL_Surface* gImgSurface = NULL;
 
+
+SDL_AudioDeviceID gAudioDev = 0;
+
 //Mouse position structure
 SDL_Point mPosition;
 
+void null_callback(void* userdata, unsigned char* stream, int len) {
+
+}
 bool init()
 {
 	//Initialization flag
 	bool success = true;
 
 	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0 )
 	{
 		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
 		success = false;
 	}
 	else
 	{
+		SDL_AudioSpec want, have;
+
+		SDL_memset(&want, 0, sizeof(want)); /* or SDL_zero(want) */
+		want.freq = 48000;
+		want.format = AUDIO_F32;
+		want.channels = 2;
+		want.samples = 4096;
+		want.callback = null_callback;  // you wrote this function elsewhere.
+
+		gAudioDev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+		if (gAudioDev == 0) {
+			printf("Failed to open audio: %s\n", SDL_GetError());
+			success = false;
+		}
+
 		//Create window
 		gWindow = SDL_CreateWindow( "ahoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
@@ -102,6 +123,8 @@ void close()
 	//Destroy window
 	SDL_DestroyWindow( gWindow );
 	gWindow = NULL;
+
+	SDL_CloseAudioDevice(gAudioDev);
 
 	//Quit SDL subsystems
 	SDL_Quit();
