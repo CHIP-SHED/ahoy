@@ -1,3 +1,9 @@
+ahoy (0.4) unstable; urgency=low
+
+  * Audio source buzz hack implemented
+
+ -- Ben Young <software@nextthing.co>  Mon, 10 May 2016 22:34:16 -0700
+
 ahoy (0.3) unstable; urgency=low
 
   * Switched nevershowagain flag to 0 value.
