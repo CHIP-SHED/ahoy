@@ -1,3 +1,9 @@
+ahoy (0.5) unstable; urgency=low
+
+  * Fixed strict licensing verbiage.
+
+ -- Ben Young <software@nextthing.co>  Mon, 15 Aug 2016 18:34:16 -0700
+
 ahoy (0.4) unstable; urgency=low
 
   * Audio source buzz hack implemented
